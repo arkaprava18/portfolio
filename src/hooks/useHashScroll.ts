@@ -9,7 +9,8 @@ export function useHashScroll() {
     const id = hash.replace('#', '');
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      el.scrollIntoView({ behavior: reduceMotion ? 'instant' : 'smooth', block: 'start' });
     }
   }, [pathname, hash, key]);
 }

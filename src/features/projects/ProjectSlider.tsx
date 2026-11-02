@@ -35,7 +35,7 @@ export function ProjectSlider({ projects }: { projects: Project[] }) {
 
   return (
     <section className="relative" aria-label="Featured projects carousel" aria-roledescription="carousel">
-      <div id="featured-project-cards" className="relative flex gap-6 overflow-hidden">
+      <div id="featured-project-cards" className="relative -mx-4 -mt-4 -mb-10 flex gap-6 overflow-hidden px-4 pt-4 pb-10">
         <AnimatePresence mode="popLayout" initial={false}>
           {visibleProjects.map((project, index) => (
             <motion.div

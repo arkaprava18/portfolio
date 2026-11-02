@@ -8,7 +8,7 @@ export function ProjectCard({ project }: { project: Project }) {
       <div className="space-y-4">
         <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-emerald-500">
           <span>{project.category}</span>
-          <span className="h-2 w-2 rounded-full bg-emerald-400" />
+          <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-emerald-400" />
         </div>
         <div>
           <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
@@ -26,7 +26,8 @@ export function ProjectCard({ project }: { project: Project }) {
         <span>View details</span>
         <Link
           to={`/projects/${project.slug}`}
-          className="rounded-full border border-slate-200 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700 transition group-hover:border-emerald-200 group-hover:text-emerald-600 dark:border-slate-700 dark:text-slate-200"
+          aria-label={`View ${project.name} details`}
+          className="inline-flex min-h-11 items-center rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700 transition group-hover:border-emerald-200 group-hover:text-emerald-600 dark:border-slate-700 dark:text-slate-200"
         >
           Open
         </Link>

@@ -4,6 +4,7 @@ export type ProjectLink = {
 };
 
 export type Project = {
+  type: 'web' | 'mobile' | 'backend';
   slug: string;
   name: string;
   category: string;
@@ -18,6 +19,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: 'thevanko',
+    type: 'web',
     name: 'TheVanko',
     category: 'Content & classifieds platform',
     summary:
@@ -38,6 +40,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'hault-api',
+    type: 'backend',
     name: 'HAULT API',
     category: 'Backend API for Logistics Platform',
     summary:
@@ -60,6 +63,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'hault-driver-app',
+    type: 'mobile',
     name: 'HAULT Driver App',
     category: 'Mobile App for Drivers',
     summary:
@@ -82,6 +86,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'hault-fleet-owner',
+    type: 'mobile',
     name: 'HAULT Fleet Owner App',
     category: 'Mobile App for Fleet Management',
     summary:
@@ -104,6 +109,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'hault-vendor',
+    type: 'mobile',
     name: 'HAULT Vendor App',
     category: 'Mobile App for Vendors',
     summary:

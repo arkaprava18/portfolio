@@ -13,8 +13,12 @@ export default function ProjectDetail() {
   if (!project) {
     return (
       <section className="py-20">
+        <Helmet>
+          <title>Project not found | {profile.name}</title>
+          <meta name="robots" content="noindex" />
+        </Helmet>
         <Container>
-          <SectionHeading title="Project not found" subtitle="Return to the project archive." />
+          <SectionHeading as="h1" title="Project not found" subtitle="Return to the project archive." />
           <div className="mt-6">
             <Link
               to="/projects"

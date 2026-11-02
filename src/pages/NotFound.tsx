@@ -1,12 +1,19 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { profile } from '../data/profile';
 import { Container } from '../components/Container';
 import { SectionHeading } from '../components/SectionHeading';
 
 export default function NotFound() {
   return (
     <section className="py-20">
+      <Helmet>
+        <title>Page not found | {profile.name}</title>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <Container>
-        <SectionHeading title="Page not found" subtitle="The page you're looking for doesn't exist." />
+        <p className="mb-4 text-sm font-semibold tracking-[0.3em] text-emerald-600 dark:text-emerald-400">404</p>
+        <SectionHeading as="h1" title="Page not found" subtitle="The page you're looking for doesn't exist." />
         <div className="mt-6">
           <Link
             to="/"

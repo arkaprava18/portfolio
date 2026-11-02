@@ -1,8 +1,10 @@
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Container } from '../components/Container';
 import { SectionHeading } from '../components/SectionHeading';
 import { Badge } from '../components/Badge';
+import { CopyEmailButton } from '../components/CopyEmailButton';
 import { ProjectSlider } from '../features/projects/ProjectSlider';
 import { featuredProjects } from '../data/projects';
 import { profile } from '../data/profile';
@@ -42,17 +44,25 @@ export default function Home() {
             <p className="mt-3 text-xl text-slate-600 dark:text-slate-300">{profile.title}</p>
             <p className="mt-6 text-base text-slate-600 dark:text-slate-300">{profile.summary}</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href="/projects"
+              <Link
+                to="/projects"
                 className="rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-emerald-500/30 transition hover:-translate-y-0.5"
               >
                 Explore projects
-              </a>
-              <a
-                href={`mailto:${profile.email}`}
+              </Link>
+              <Link
+                to="/#contact"
                 className="rounded-full border border-slate-200 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-700 transition hover:border-emerald-200 hover:text-emerald-600 dark:border-slate-700 dark:text-slate-200"
               >
                 Contact
+              </Link>
+              <a
+                href={profile.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-slate-200 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-700 transition hover:border-emerald-200 hover:text-emerald-600 dark:border-slate-700 dark:text-slate-200"
+              >
+                GitHub
               </a>
             </div>
           </motion.div>
@@ -109,7 +119,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Experience"
             title="Teams & Impact"
-            subtitle="Hands-on delivery across product teams, agencies, and freelance engagements."
+            subtitle="Building and maintaining full-stack applications in a product team."
           />
           <div className="mt-10 space-y-6">
             {experience.map((item, index) => (
@@ -146,7 +156,7 @@ export default function Home() {
 
       <section id="contact" className="py-16">
         <Container>
-          <div className="rounded-3xl border border-emerald-200 bg-gradient-to-br from-emerald-500 via-teal-500 to-slate-900 p-10 text-white shadow-2xl shadow-emerald-500/40">
+          <div className="rounded-3xl border border-emerald-200 bg-gradient-to-br from-emerald-500 via-teal-500 to-slate-900 p-6 text-white shadow-2xl shadow-emerald-500/40 sm:p-10">
             <div className="max-w-2xl space-y-4">
               <p className="text-xs uppercase tracking-[0.3em] text-white/80">Let's build</p>
               <h2 className="text-3xl font-semibold">Ready to ship your next product?</h2>
@@ -156,14 +166,15 @@ export default function Home() {
               <div className="flex flex-wrap gap-4">
                 <a
                   href={`mailto:${profile.email}`}
-                  className="rounded-full bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-900"
+                  className="max-w-full break-all rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-emerald-50"
                 >
                   {profile.email}
                 </a>
-                <span className="rounded-full border border-white/40 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em]">
+                <a href={`tel:${profile.phone}`} className="rounded-full border border-white/40 px-5 py-3 text-sm font-semibold transition hover:bg-white/10">
                   {profile.phone}
-                </span>
+                </a>
               </div>
+              <CopyEmailButton />
             </div>
           </div>
         </Container>

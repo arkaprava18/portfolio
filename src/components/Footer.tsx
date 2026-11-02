@@ -8,12 +8,12 @@ export function Footer() {
         <p>
           {profile.name} © {new Date().getFullYear()}
         </p>
-        <div className="flex items-center gap-4">
-          <a href={`mailto:${profile.email}`} className="hover:text-emerald-500">
+        <div className="flex min-w-0 flex-wrap items-center gap-4">
+          <a href={`mailto:${profile.email}`} className="break-all hover:text-emerald-500">
             {profile.email}
           </a>
           {profile.links.github ? (
-            <a href={profile.links.github} className="hover:text-emerald-500">
+            <a href={profile.links.github} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500">
               GitHub
             </a>
           ) : null}

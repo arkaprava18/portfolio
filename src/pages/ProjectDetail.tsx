@@ -59,6 +59,8 @@ export default function ProjectDetail() {
                   <a
                     key={link.label}
                     href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="rounded-full border border-slate-200 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700 transition hover:border-emerald-200 hover:text-emerald-600 dark:border-slate-700 dark:text-slate-200"
                   >
                     {link.label}
@@ -72,7 +74,7 @@ export default function ProjectDetail() {
 
       <section className="pb-20">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
+          <div className={`grid gap-8 ${project.screenshots.length > 0 ? 'lg:grid-cols-[2fr_1fr]' : 'max-w-3xl'}`}>
             <div className="space-y-6">
               <SectionHeading title="Project Summary" />
               <div className="space-y-4 text-sm text-slate-600 dark:text-slate-300">
@@ -87,13 +89,9 @@ export default function ProjectDetail() {
                 ))}
               </ul>
             </div>
-            <div className="space-y-6">
-              <SectionHeading title="Screenshots" subtitle="Plug in images via data/projects.ts" />
-              {project.screenshots.length === 0 ? (
-                <div className="rounded-3xl border border-dashed border-slate-300 bg-white/60 p-6 text-sm text-slate-500 dark:border-slate-700 dark:bg-slate-900/40">
-                  Add `screenshots` entries in `src/data/projects.ts` to render visuals here.
-                </div>
-              ) : (
+            {project.screenshots.length > 0 ? (
+              <div className="space-y-6">
+                <SectionHeading title="Screenshots" />
                 <div className="space-y-4">
                   {project.screenshots.map((shot) => (
                     <img
@@ -105,8 +103,8 @@ export default function ProjectDetail() {
                     />
                   ))}
                 </div>
-              )}
-            </div>
+              </div>
+            ) : null}
           </div>
         </Container>
       </section>

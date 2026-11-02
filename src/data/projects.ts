@@ -17,29 +17,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: 'irakhay',
-    name: 'Irakhay',
-    category: 'Multi-lingual e-commerce platform',
-    summary:
-      'Full-stack marketplace with multi-role access, automated workflows, and integrated payments.',
-    description: [
-      'Built a production-grade platform supporting user, admin, and super-admin workflows with a comprehensive admin panel.',
-      'Implemented Stripe and YoMoney payments with automated email flows, cart cleanup jobs, and Telegram chat support.',
-      'Developed a robust Node.js API with Express, MySQL, AWS S3 integration, and real-time features.',
-      'Created an admin dashboard with product management, order processing, stock control, and customer communication tools.',
-      'Integrated AWS services, payment gateways, and automated workflows for a seamless e-commerce experience.',
-    ],
-    techStack: ['React', 'TypeScript', 'Node.js', 'Express', 'MySQL', 'AWS S3', 'Stripe', 'YoMoney', 'Bootstrap', 'Redux', 'JWT'],
-    highlights: [
-      'Multi-role interfaces with permissioned dashboards and advanced admin tooling.',
-      'Automated cart cleanup with CRON jobs, email automation, and scheduled tasks.',
-      'Third-party integrations for payments, file uploads, and customer support.',
-      'Scalable architecture with AWS deployment and multi-currency support.',
-    ],
-    links: [{ label: 'Live Site', url: 'https://irakhay.com' }],
-    screenshots: [],
-  },
-  {
     slug: 'thevanko',
     name: 'TheVanko',
     category: 'Content & classifieds platform',
@@ -149,4 +126,4 @@ export const projects: Project[] = [
   },
 ];
 
-export const featuredProjects = projects.slice(3, 7);
+export const featuredProjects = projects.filter((project) => ['hault-driver-app', 'hault-fleet-owner', 'hault-vendor'].includes(project.slug));
